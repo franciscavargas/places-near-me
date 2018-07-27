@@ -24,7 +24,11 @@ app.post("/search", function(req, res) {
       if (err) {
         console.error(err);
       } else {
-        res.send(body);
+        const allPopularVenues = JSON.parse(body).response.groups[0].items;
+        const popularVenuesNames = allPopularVenues.map(venue => {
+          return venue.venue.name;
+        });
+        res.send(popularVenuesNames);
       }
     }
   );
