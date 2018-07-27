@@ -4,7 +4,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      popularPlaceNames: ["a", "b"]
+      popularPlaceNames: [],
+      searched: false
     };
   }
   searchPlace() {
@@ -22,7 +23,7 @@ class App extends React.Component {
     })
       .then(res => res.json())
       .then(res => {
-        this.setState({ popularPlaceNames: res });
+        this.setState({ popularPlaceNames: res, searched: true });
       });
   }
 
@@ -49,6 +50,10 @@ class App extends React.Component {
               return <li>{name}</li>;
             })}
           </ul>
+          {this.state.popularPlaceNames.length === 0 &&
+            this.state.searched === true && (
+              <p>No places found! Search again...</p>
+            )}
         </div>
       </div>
     );
