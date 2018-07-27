@@ -1,0 +1,22 @@
+{
+  "name": "places-near-me",
+  "version": "1.0.0",
+  "description": "Search for a place by name and return the recommended or popular venues near that location.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/franciscavargas/places-near-me.git"
+  },
+  "author": "FV",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/franciscavargas/places-near-me/issues"
+  },
+  "homepage": "https://github.com/franciscavargas/places-near-me#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
