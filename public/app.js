@@ -1,6 +1,12 @@
 "use strict";
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      popularPlaceNames: ["a", "b"]
+    };
+  }
   searchPlace() {
     const placeBox = document.querySelector("#place_box");
     const placeToSearch = placeBox.value;
@@ -15,7 +21,9 @@ class App extends React.Component {
       body: JSON.stringify({ place: placeToSearch })
     })
       .then(res => res.json())
-      .then(res => console.log(res));
+      .then(res => {
+        this.setState({ popularPlaceNames: res });
+      });
   }
 
   render() {
@@ -29,9 +37,19 @@ class App extends React.Component {
         <p>Enter address</p>
         <div>
           <input id="place_box" type="text" name="my_address" />
-          <input type="submit" onClick={this.searchPlace} value="Search" />
+          <input
+            type="submit"
+            onClick={this.searchPlace.bind(this)}
+            value="Search"
+          />
         </div>
-        <div />
+        <div>
+          <ul>
+            {this.state.popularPlaceNames.map(name => {
+              return <li>{name}</li>;
+            })}
+          </ul>
+        </div>
       </div>
     );
   }
