@@ -7,7 +7,7 @@ app.use(express.static("public"));
 
 app.use(formidable());
 
-app.post("/search", function(req, res) {
+app.post("/search", function (req, res) {
   request(
     {
       url: "https://api.foursquare.com/v2/venues/explore",
@@ -20,7 +20,7 @@ app.post("/search", function(req, res) {
         v: "20180323"
       }
     },
-    function(err, result, body) {
+    function (err, result, body) {
       if (err) {
         console.error(err);
       } else {
@@ -34,6 +34,6 @@ app.post("/search", function(req, res) {
   );
 });
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function () {
   console.log("Server is listening on port 3000. Ready to accept requests!");
 });
