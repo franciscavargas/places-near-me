@@ -12,7 +12,7 @@ class App extends React.Component {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(placeToSearch)
+      body: JSON.stringify({ place: placeToSearch })
     })
       .then(res => res.json())
       .then(res => console.log(res));

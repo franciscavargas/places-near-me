@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/franciscavargas/places-near-me#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "express-formidable": "^1.0.0",
+    "request": "^2.87.0"
   }
 }
