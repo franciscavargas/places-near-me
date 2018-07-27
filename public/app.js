@@ -29,12 +29,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h1>📍 Places near me</h1>
-        <h2>
-          Search for a place by name and return the recommended or popular
-          venues near that location
-        </h2>
+        <h2>Search for a place by name and return the recommended or popular venues near that location</h2>
         <p>Enter address</p>
         <div>
           <input id="place_box" type="text" name="my_address" />
@@ -44,7 +41,7 @@ class App extends React.Component {
             value="Search"
           />
         </div>
-        <div>
+        <div className="displayedSearches">
           <ul>
             {this.state.popularPlaceNames.map(name => {
               return <li>{name}</li>;
